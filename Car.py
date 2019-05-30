@@ -1,4 +1,5 @@
 import numpy as np
+from scipy import misc
 import random
 from helpers import *
 
@@ -31,8 +32,8 @@ class Car:
     
     def set_leader(self, position_init, function):
         self._position = function(self._temps, position_init)[:-1]
-        self._vitesse = []
-        self._acceleration = []
+        self._vitesse = [20 for i in self._temps]
+        self._acceleration = [0 for i in self._temps]
 
     
     # def set_caracteristiques(self, leader, temps_init, position_init, vitesse_init, vitesse_max):
