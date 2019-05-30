@@ -2,8 +2,8 @@ import numpy as np
 import random
 from helpers import *
 
-A = 3
-B = 1
+A = 2
+B = 5
 
 class Car:
 
@@ -49,6 +49,6 @@ class Car:
                 distance = leader.position[i-1] - self._position[i-1]
                 self._acceleration.append(A * (1 - B * np.exp(-distance + distance_min))*(1 - np.exp((self._vitesse[i] - vitesse_max) / vitesse_max)))
                 self._vitesse.append(max(self._acceleration[i] * dt + self._vitesse[i], 0))
-                self._position.append(self._position[i-1] + self._vitesse[i] * dt)
+                self._position.append(self._position[i-1] + self._vitesse[i-1] * dt)
                 
         self._position = self._position[:-1]

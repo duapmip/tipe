@@ -1,6 +1,7 @@
-from Orchestrator import Orchestrator
+from Simulator import Simulator
 from leader_functions import * 
 from helpers import *
+from simulator_functions import *
 
 if __name__ == "__main__":
     print("Let's go")
@@ -9,8 +10,10 @@ if __name__ == "__main__":
     n = 10000
     position_init = 800
     leader_function = leader_function_1
-    nb_voitures = 500
+    simulator_function = simulator_function_2
+    nombre_voitures = 500
+    vitesse = 20
 
-    orchestrator = Orchestrator(x_min, x_max, n)
-    cars = orchestrator.simulation(position_init, leader_function_1, nb_voitures)
-    creation_positions_graphique([car.position for car in cars], orchestrator.temps)
+    simulator = Simulator(x_min, x_max, n)
+    cars = simulator.simulation(nombre_voitures, position_init, vitesse, leader_function, simulator_function)
+    creation_positions_graphique([car.position for car in cars], simulator.temps)

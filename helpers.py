@@ -27,4 +27,9 @@ def creation_positions_graphique(positions, temps):
     for position in range(0, len(positions), 1):
         plt.plot(positions[position][::30], temps[::30], 'o', color='black', markersize=0.5)
         plt.plot(positions[position], temps)
+    plt.xlim(0,12000)
+    plt.ylim(0,1000)
+    plt.title('Positions des voitures')
+    plt.xlabel('position (m)')
+    plt.ylabel('temps (s)')
     plt.show()

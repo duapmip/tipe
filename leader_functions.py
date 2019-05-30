@@ -18,5 +18,5 @@ def leader_function_1(temps, position_init):
                     if c<=i<=4500:
                         positions.append(2.2 * temps[i-c] + positions[c])
                     else:
-                        positions.append(12 * temps[i-4500] + positions[4500])                   
+                        positions.append(9 * temps[i-4500] + positions[4500])                   
     return positions
