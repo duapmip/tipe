@@ -2,7 +2,7 @@ import numpy as np
 import random
 from helpers import *
 
-A = 2
+A = 3
 B = 1
 
 class Car:
