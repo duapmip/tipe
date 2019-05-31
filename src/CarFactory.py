@@ -1,5 +1,6 @@
 from src.CarPerso import CarPerso
 from src.CarIDM import CarIDM
+from src.CarLeader import CarLeader
 import random
 
 class CarFactory:
@@ -9,13 +10,13 @@ class CarFactory:
 
     
     def create_leader(self, temps, position_init, vitesse_init, function):
-        car = CarPerso(temps)
-        car.set_leader(position_init, vitesse_init, function)
-        return car
+        leader = CarLeader(temps)
+        leader.set_leader(position_init, vitesse_init, function)
+        return leader
 
 
     def create_car(self, temps, leader, temps_init, position_init):
-        car = CarPerso(temps)
+        car = CarIDM(temps)
         vitesse_init = random.randint(12,16)
         vitesse_max = self._creation_vitesse_max(0.8, 25)
         car.set_caracteristiques(leader, temps_init, position_init, vitesse_init, vitesse_max)

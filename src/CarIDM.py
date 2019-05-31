@@ -1,10 +1,11 @@
 from src.AbstractCar import AbstractCar
-
+import numpy as np
+from src.helpers import *
 
 class CarIDM(AbstractCar):
 
-    def __init__(self):
-        super().__init__()
+    def __init__(self, temps):
+        super().__init__(temps)
 
     def set_caracteristiques(self, leader, temps_init, position_init, vitesse_init, vitesse_max):
         self._position.append(position_init)

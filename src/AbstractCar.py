@@ -24,8 +24,9 @@ class AbstractCar:
     def acceleration(self):
         return self._acceleration
     
+    @abc.abstractmethod
     def set_leader(self, position_init, vitesse_init, function):
-        self._position, self._vitesse, self._acceleration = function(self._temps, position_init, vitesse_init)
+        pass
         
     @abc.abstractmethod
     def set_caracteristiques(self, leader, temps_init, position_init, vitesse_init, vitesse_max):

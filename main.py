@@ -1,7 +1,7 @@
-from Simulator import Simulator
-from leader_functions import * 
-from helpers import *
-from simulator_functions import *
+from src.Simulator import Simulator
+from src.leader_functions import * 
+from src.helpers import *
+from src.simulator_functions import *
 
 if __name__ == "__main__":
     print("Let's go")
