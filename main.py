@@ -11,7 +11,7 @@ if __name__ == "__main__":
     position_init = 800
     leader_function = leader_function_1
     simulator_function = simulator_function_2
-    nombre_voitures = 500
+    nombre_voitures = 10
     vitesse = 20
 
     simulator = Simulator(x_min, x_max, n)

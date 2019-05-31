@@ -10,13 +10,13 @@ class Simulator:
         self._n = n
         self._temps = creation_temps(x_min, x_max, n)
 
-    def simulation(self, nombre_voitures, position_init, vitesse, leader_function, simulator_function):
+    def simulation(self, nombre_voitures, position_init, vitesse_init, leader_function, simulator_function):
         car_factory = CarFactory()
-        leader = car_factory.create_leader(self._temps, position_init, leader_function)
+        leader = car_factory.create_leader(self._temps, position_init, vitesse_init, leader_function)
         cars = [leader]
         p = random.randint(2,6)
         for i in range(0, nombre_voitures):
-            car = simulator_function(i, p, vitesse, position_init, car_factory, cars, self._temps)
+            car = simulator_function(i, p, vitesse_init, position_init, car_factory, cars, self._temps)
             cars.append(car)
         return cars
 

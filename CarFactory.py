@@ -7,9 +7,9 @@ class CarFactory:
         pass
 
     
-    def create_leader(self, temps, position_init, function):
+    def create_leader(self, temps, position_init, vitesse_init, function):
         car = Car(temps)
-        car.set_leader(position_init, function)
+        car.set_leader(position_init, vitesse_init, function)
         return car
 
 
