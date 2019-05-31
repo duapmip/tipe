@@ -15,8 +15,13 @@ class CarFactory:
         return leader
 
 
-    def create_car(self, temps, leader, temps_init, position_init):
-        car = CarIDM(temps)
+    def create_car(self, temps, leader, temps_init, position_init, model):
+        if model == "perso":
+            car = CarPerso(temps)
+        elif model == "idm":
+            car = CarIDM(temps)
+        else:
+            raise Exception("This model does not exist.")
         vitesse_init = random.randint(12,16)
         vitesse_max = self._creation_vitesse_max(0.8, 25)
         car.set_caracteristiques(leader, temps_init, position_init, vitesse_init, vitesse_max)

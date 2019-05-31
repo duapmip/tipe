@@ -26,24 +26,24 @@ def leader_function_1(temps, position_init, vitesse_init):
     positions = [position_init]
     vitesses = [vitesse_init]
     accelerations = []
-    a = random.randint(300,400)
-    b = random.randint(500,1800)
-    c = random.randint(3600,3900)
+    a = 280
+    b = 850
+    c = 3700
     dt = temps[1] - temps[0]
     for i in range(len(temps)):
-        if i <= a:
-            accelerations.append(-0.4)
-        else:
+        if vitesses[i] > 0:
+            if i <= a:
+                accelerations.append(-0.6)
             if a<i<=b:
-                accelerations.append(0.08)
+                accelerations.append(0.24)
+            if b<i<=c:
+                accelerations.append(-0.04)
+            if c<=i<=4500:
+                accelerations.append(-0.03)
             else:
-                if b<i<=c:
-                    accelerations.append(-0.04)
-                else:
-                    if c<=i<=4500:
-                        accelerations.append(-0.03)
-                    else:
-                        accelerations.append(0.06)
+                accelerations.append(0)
+        else:
+            accelerations.append(0.1)
         vitesses.append(accelerations[i] * dt + vitesses[i])
         positions.append(vitesses[i] * dt + positions[i])                   
     return positions[:-1], vitesses, accelerations

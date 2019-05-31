@@ -10,7 +10,7 @@ class CarIDM(AbstractCar):
     def set_caracteristiques(self, leader, temps_init, position_init, vitesse_init, vitesse_max):
         self._position.append(position_init)
         self._vitesse.append(vitesse_init)
-        acceleration_max = 1.5
+        acceleration_max = 0.7
         for i in range(0, len(self._temps)):
             dt = self._temps[i] - self._temps[i-1]
             dv = self._vitesse[i] - leader.vitesse[i]
@@ -21,7 +21,7 @@ class CarIDM(AbstractCar):
                 self._acceleration.append(0)
             else:
                 distance = leader.position[i-1] - self._position[i-1]
-                s_etoile = distance_min + (self._vitesse[i] * dv) / 2 * np.sqrt(acceleration_max)
+                s_etoile = distance_min + (self._vitesse[i] * dv) / 2 * np.sqrt(1.67 * acceleration_max) + 1.5 * self._vitesse[i]
                 acceleration_libre = acceleration_max * (1 - (self._vitesse[i] / vitesse_max)**4)
                 acceleration_condi = - acceleration_max * (s_etoile / distance)**2
                 self._acceleration.append(acceleration_libre + acceleration_condi)
