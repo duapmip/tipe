@@ -1,7 +1,7 @@
-from Simulator import Simulator
-from leader_functions import * 
-from helpers import *
-from simulator_functions import *
+from src.Simulator import Simulator
+from src.leader_functions import * 
+from src.helpers import *
+from src.simulator_functions import *
 
 if __name__ == "__main__":
     print("Let's go")
@@ -10,10 +10,11 @@ if __name__ == "__main__":
     n = 10000
     position_init = 800
     leader_function = leader_function_1
-    simulator_function = simulator_function_2
-    nombre_voitures = 500
+    simulator_function =     simulator_function_2
+    nombre_voitures = 30
     vitesse = 20
+    model = "idm"
 
     simulator = Simulator(x_min, x_max, n)
-    cars = simulator.simulation(nombre_voitures, position_init, vitesse, leader_function, simulator_function)
+    cars = simulator.simulation(nombre_voitures, position_init, vitesse, leader_function, simulator_function, model)
     creation_positions_graphique([car.position for car in cars], simulator.temps)

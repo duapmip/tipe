@@ -1,40 +1,16 @@
 import numpy as np
 import random
-from helpers import *
+from src.helpers import *
 
-A = 2
-B = 5
+from src.AbstractCar import AbstractCar
+A = 20
+B = 1
 
-class Car:
+class CarPerso(AbstractCar):
 
     def __init__(self, temps):
-        self._temps = temps
-        self._position = []
-        self._vitesse = []
-        self._acceleration = []
+        super().__init__(temps)
 
-    @property
-    def temps(self):
-        return self._temps
-
-    @property
-    def position(self):
-        return self._position
-
-    @property
-    def vitesse(self):
-        return self._vitesse
-
-    @property
-    def acceleration(self):
-        return self._acceleration
-    
-    def set_leader(self, position_init, function):
-        self._position = function(self._temps, position_init)[:-1]
-        self._vitesse = []
-        self._acceleration = []
-
-    
     def set_caracteristiques(self, leader, temps_init, position_init, vitesse_init, vitesse_max):
         self._position.append(position_init)
         self._vitesse.append(vitesse_init)
@@ -49,6 +25,6 @@ class Car:
                 distance = leader.position[i-1] - self._position[i-1]
                 self._acceleration.append(A * (1 - B * np.exp(-distance + distance_min))*(1 - np.exp((self._vitesse[i] - vitesse_max) / vitesse_max)))
                 self._vitesse.append(max(self._acceleration[i] * dt + self._vitesse[i], 0))
-                self._position.append(self._position[i-1] + self._vitesse[i-1] * dt)
+                self._position.append(self._position[i] + self._vitesse[i] * dt)
                 
         self._position = self._position[:-1]
