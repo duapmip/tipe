@@ -10,7 +10,7 @@ if __name__ == "__main__":
     n = 10000
     position_init = 800
     leader_function = leader_function_2
-    simulator_function = simulator_function_2
+    simulator_function = simulator_function_1
     nombre_voitures = 100
     vitesse = 20
     model = "perso"
@@ -20,3 +20,4 @@ if __name__ == "__main__":
 
     creation_positions_graphique([car.position for car in cars], simulator.temps)
     creation_vitesse_moyenne_graphique(cars, simulator.temps)
+    creation_distance_moyenne_graphique(cars, simulator.temps)

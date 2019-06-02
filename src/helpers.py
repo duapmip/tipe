@@ -37,17 +37,35 @@ def creation_positions_graphique(positions, temps):
 
 def creation_vitesse_moyenne_graphique(cars, temps):
     s = 0
-    a = []
+    v = []
     n = len(temps)
     for i in range(0, n):
         s = 0
         for car in cars:
             s = s + car.vitesse[i]
-        a.append(s/len(cars))
-    plt.plot(temps, a)
+        v.append(s/len(cars))
+    plt.plot(temps, v)
     plt.xlim(0,1000)
     plt.ylim(0,30)
-    plt.title('vitesses des voitures')
+    plt.title('vitesse moyenne des voitures')
     plt.xlabel('temps (s)')
-    plt.ylabel('vitesse (m)')
+    plt.ylabel('vitesse moyenne (m/s)')
+    plt.show()
+
+
+def creation_distance_moyenne_graphique(cars, temps):
+    s = 0
+    d = []
+    n = len(temps)
+    for i in range(0, n):
+        s = 0
+        for j in range(len(cars)-1):
+            s = s + cars[j].position[i] - cars[j+1].position[i]
+        d.append(s/(len(cars)-1))
+    plt.plot(temps, d)
+    plt.xlim(0,1000)
+    plt.ylim(0,30)
+    plt.title('distance moyenne des voitures')
+    plt.xlabel('temps (s)')
+    plt.ylabel('distance moyenne (m)')
     plt.show()
