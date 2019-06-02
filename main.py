@@ -3,6 +3,7 @@ from src.Simulator import Simulator
 from src.leader_functions import * 
 from src.helpers import *
 from src.simulator_functions import *
+import os
 
 
 LEADER_FUNCTION = {
@@ -43,6 +44,10 @@ if __name__ == "__main__":
     simulator = Simulator(x_min, x_max, n)
     cars = simulator.simulation(nombre_voitures, position_init, vitesse, leader_function, simulator_function, model)
 
-    creation_positions_graphique([car.position for car in cars], simulator.temps)
-    creation_vitesse_moyenne_graphique(cars, simulator.temps)
-    creation_distance_moyenne_graphique(cars, simulator.temps)
+    folder = f"img/{model}_{leader_function.__name__}_{simulator_function.__name__}_{nombre_voitures}"
+    os.mkdir(folder)
+    creation_positions_graphique([car.position for car in cars], simulator.temps, model, leader_function, simulator_function, nombre_voitures, folder, True)
+    creation_vitesse_moyenne_graphique(cars, simulator.temps, model, leader_function, simulator_function, nombre_voitures, folder, True)
+    creation_distance_moyenne_graphique(cars, simulator.temps, model, leader_function, simulator_function, nombre_voitures, folder, True)
+
+    

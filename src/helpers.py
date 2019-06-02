@@ -18,7 +18,7 @@ def creation_temps(x_min, x_max, n):
     return temps
 
 
-def creation_positions_graphique(positions, temps):
+def creation_positions_graphique(positions, temps,  model, leader_function, simulator_function, nombre_voitures, folder, save=False):
     """
     Creation des graphiques des positions
     :param positions: liste de liste des positions des voitures
@@ -33,10 +33,15 @@ def creation_positions_graphique(positions, temps):
     plt.title('Positions des voitures')
     plt.xlabel('position (m)')
     plt.ylabel('temps (s)')
+    if save:
+        now = datetime.now()
+        timestamp = now.strftime("%Y%m%d%H%M%S")
+        filename = f"{folder}/positions_{timestamp}_{model}_{leader_function.__name__}_{simulator_function.__name__}_{nombre_voitures}.png"
+        plt.savefig(filename)
     plt.show()
 
 
-def creation_vitesse_moyenne_graphique(cars, temps, save=False):
+def creation_vitesse_moyenne_graphique(cars, temps, model, leader_function, simulator_function, nombre_voitures, folder, save=False):
     s = 0
     v = []
     n = len(temps)
@@ -54,13 +59,12 @@ def creation_vitesse_moyenne_graphique(cars, temps, save=False):
     if save:
         now = datetime.now()
         timestamp = now.strftime("%Y%m%d%H%M%S")
-        filename = f"img/vitesse_moyenne_{timestamp}.png"
-        plt.set_size_inches(18.5, 10.5)
+        filename = f"{folder}/vitesse_moyenne_{timestamp}_{model}_{leader_function.__name__}_{simulator_function.__name__}_{nombre_voitures}.png"
         plt.savefig(filename)
     plt.show()
 
 
-def creation_distance_moyenne_graphique(cars, temps):
+def creation_distance_moyenne_graphique(cars, temps, model, leader_function, simulator_function, nombre_voitures, folder, save=False):
     s = 0
     d = []
     n = len(temps)
@@ -75,4 +79,9 @@ def creation_distance_moyenne_graphique(cars, temps):
     plt.title('distance moyenne des voitures')
     plt.xlabel('temps (s)')
     plt.ylabel('distance moyenne (m)')
+    if save:
+        now = datetime.now()
+        timestamp = now.strftime("%Y%m%d%H%M%S")
+        filename = f"{folder}/distance_moyenne_{timestamp}_{model}_{leader_function.__name__}_{simulator_function.__name__}_{nombre_voitures}.png"
+        plt.savefig(filename)
     plt.show()
