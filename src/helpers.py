@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+from datetime import datetime
 
 def creation_distance_min(vitesse):
     """
@@ -17,7 +18,7 @@ def creation_temps(x_min, x_max, n):
     return temps
 
 
-def creation_positions_graphique(positions, temps):
+def creation_positions_graphique(positions, temps, save=False):
     """
     Creation des graphiques des positions
     :param positions: liste de liste des positions des voitures
@@ -35,7 +36,7 @@ def creation_positions_graphique(positions, temps):
     plt.show()
 
 
-def creation_vitesse_moyenne_graphique(cars, temps):
+def creation_vitesse_moyenne_graphique(cars, temps, save=False):
     s = 0
     a = []
     n = len(temps)
@@ -50,4 +51,10 @@ def creation_vitesse_moyenne_graphique(cars, temps):
     plt.title('vitesses des voitures')
     plt.xlabel('temps (s)')
     plt.ylabel('vitesse (m)')
+    if save:
+        now = datetime.now()
+        timestamp = now.strftime("%Y%m%d%H%M%S")
+        filename = f"img/vitesse_moyenne_{timestamp}.png"
+        plt.set_size_inches(18.5, 10.5)
+        plt.savefig(filename)
     plt.show()
