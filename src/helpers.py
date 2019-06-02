@@ -18,7 +18,7 @@ def creation_temps(x_min, x_max, n):
     return temps
 
 
-def creation_positions_graphique(positions, temps, save=False):
+def creation_positions_graphique(positions, temps):
     """
     Creation des graphiques des positions
     :param positions: liste de liste des positions des voitures
@@ -38,23 +38,41 @@ def creation_positions_graphique(positions, temps, save=False):
 
 def creation_vitesse_moyenne_graphique(cars, temps, save=False):
     s = 0
-    a = []
+    v = []
     n = len(temps)
     for i in range(0, n):
         s = 0
         for car in cars:
             s = s + car.vitesse[i]
-        a.append(s/len(cars))
-    plt.plot(temps, a)
+        v.append(s/len(cars))
+    plt.plot(temps, v)
     plt.xlim(0,1000)
     plt.ylim(0,30)
-    plt.title('vitesses des voitures')
+    plt.title('vitesse moyenne des voitures')
     plt.xlabel('temps (s)')
-    plt.ylabel('vitesse (m)')
+    plt.ylabel('vitesse moyenne (m/s)')
     if save:
         now = datetime.now()
         timestamp = now.strftime("%Y%m%d%H%M%S")
         filename = f"img/vitesse_moyenne_{timestamp}.png"
         plt.set_size_inches(18.5, 10.5)
         plt.savefig(filename)
+    plt.show()
+
+
+def creation_distance_moyenne_graphique(cars, temps):
+    s = 0
+    d = []
+    n = len(temps)
+    for i in range(0, n):
+        s = 0
+        for j in range(len(cars)-1):
+            s = s + cars[j].position[i] - cars[j+1].position[i]
+        d.append(s/(len(cars)-1))
+    plt.plot(temps, d)
+    plt.xlim(0,1000)
+    plt.ylim(0,30)
+    plt.title('distance moyenne des voitures')
+    plt.xlabel('temps (s)')
+    plt.ylabel('distance moyenne (m)')
     plt.show()

@@ -45,3 +45,4 @@ if __name__ == "__main__":
 
     creation_positions_graphique([car.position for car in cars], simulator.temps)
     creation_vitesse_moyenne_graphique(cars, simulator.temps)
+    creation_distance_moyenne_graphique(cars, simulator.temps)
