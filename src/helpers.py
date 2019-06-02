@@ -25,11 +25,29 @@ def creation_positions_graphique(positions, temps):
     :return: graphique des positions
     """
     for position in range(0, len(positions), 1):
-        plt.plot(positions[position][::30], temps[::30], 'o', color='black', markersize=0.5)
+        # plt.plot(positions[position][::30], temps[::30], 'o', color='black', markersize=0.5)
         plt.plot(positions[position], temps)
     plt.xlim(0,12000)
     plt.ylim(0,1000)
     plt.title('Positions des voitures')
     plt.xlabel('position (m)')
     plt.ylabel('temps (s)')
+    plt.show()
+
+
+def creation_vitesse_moyenne_graphique(cars, temps):
+    s = 0
+    a = []
+    n = len(temps)
+    for i in range(0, n):
+        s = 0
+        for car in cars:
+            s = s + car.vitesse[i]
+        a.append(s/len(cars))
+    plt.plot(temps, a)
+    plt.xlim(0,1000)
+    plt.ylim(0,30)
+    plt.title('vitesses des voitures')
+    plt.xlabel('temps (s)')
+    plt.ylabel('vitesse (m)')
     plt.show()
