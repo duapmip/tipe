@@ -6,6 +6,9 @@ from src.AbstractCar import AbstractCar
 A = 2
 B = 5
 
+# Creation d'une classe correspondante au modele cree.
+# Permet d'assigner l'acceleration, la vitesse et la position d'apres le modele Perso a chaque instant.
+
 class CarPerso(AbstractCar):
 
     def __init__(self, temps):

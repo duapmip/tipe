@@ -2,6 +2,11 @@ from src.AbstractCar import AbstractCar
 import numpy as np
 from src.helpers import *
 
+
+# Creation d'une classe correspondante au modele de l'Intelligent Driver Model (IDM).
+# Permet d'assigner l'acceleration, la vitesse et la position d'apres le modele IDM a chaque instant.
+
+
 class CarIDM(AbstractCar):
 
     def __init__(self, temps):

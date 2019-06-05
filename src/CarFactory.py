@@ -3,6 +3,8 @@ from src.CarIDM import CarIDM
 from src.CarLeader import CarLeader
 import random
 
+# Creation d'une classe permettant de creer et definir toutes les voitures 
+
 class CarFactory:
 
     def __init__(self):

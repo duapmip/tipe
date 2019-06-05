@@ -1,6 +1,14 @@
 import random
 
+# creation de differents types de comportements pour la 1ere voiture (leader).
+
 def leader_function_1(temps, position_init, vitesse_init):
+    """
+    Creation de l'acceleration, de la vitesse et de la position de la premier voiture (leader)
+    :param vitesse_init: vitesse initiale de la voiture
+    :param position_init: position initiale de la voiture
+    :return: listes de l'acceleration, de la vitesse et de la position pour chaque instant de la 1ere voiture
+    """
     positions = [position_init]
     vitesses = [vitesse_init]
     accelerations = []
@@ -28,6 +36,12 @@ def leader_function_1(temps, position_init, vitesse_init):
 
 
 def leader_function_2(temps, position_init, vitesse_init):
+    """
+    Creation de l'acceleration, de la vitesse et de la position de la premier voiture (leader)
+    :param vitesse_init: vitesse initiale de la voiture
+    :param position_init: position initiale de la voiture
+    :return: listes de l'acceleration, de la vitesse et de la position pour chaque instant de la 1ere voiture
+    """
     positions = [position_init]
     vitesses = [vitesse_init]
     accelerations = []

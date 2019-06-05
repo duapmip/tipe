@@ -16,32 +16,25 @@ SIMULATOR_FUNCTION = {
 }
 
 if __name__ == "__main__":
-    print("Let's go")
-    argument_parser = argparse.ArgumentParser()
-    argument_parser.add_argument("--x_min", default=0, type=int)
-    argument_parser.add_argument("--x_max", default=1000, type=int)
-    argument_parser.add_argument("--n", default=10000, type=int)
-    argument_parser.add_argument("--position_init", default=800, type=int)
-    argument_parser.add_argument("--nombre_voitures", default=100, type=int)
-    argument_parser.add_argument("--vitesse", default=20, type=int)
-    argument_parser.add_argument("--model", default="perso", type=str)
-    argument_parser.add_argument("--leader_function", choices=LEADER_FUNCTION.keys(), default="leader_function_2")
-    argument_parser.add_argument("--simulator_function", choices=SIMULATOR_FUNCTION.keys(), default="simulator_function_2")
-    args = argument_parser.parse_args()
+    # parametrage de la simulation :
+    # durée considérée, pas de la simulation, position initiale, nombre de voitures, vitesse initial, modèle choisi, fonction du leader et fonction des conditions initiales choisies.
     
-    x_min = args.x_min
-    x_max = args.x_max
-    n = args.n
-    position_init = args.position_init
-    nombre_voitures = args.nombre_voitures
-    vitesse = args.vitesse
-    model = args.model
+    x_min = 0
+    x_max = 1000
+    n = 10000
+    position_init = 800
+    nombre_voitures = 100
+    vitesse = 20
+    model = "perso"
+    leader_function = leader_function_2
+    simulator_function = simulator_function_2
 
-    leader_function = LEADER_FUNCTION[args.leader_function]
-    simulator_function = SIMULATOR_FUNCTION[args.simulator_function]
+    # création des voitures en oreintation objet, chaque voiture possède une position, une vitesse et une accéération  à chaque instant
 
     simulator = Simulator(x_min, x_max, n)
     cars = simulator.simulation(nombre_voitures, position_init, vitesse, leader_function, simulator_function, model)
+
+    # creation des graphiques des positions, de la vitesse moyenne et de la distance moyenne en focntion du temps
 
     creation_positions_graphique([car.position for car in cars], simulator.temps)
     creation_vitesse_moyenne_graphique(cars, simulator.temps)

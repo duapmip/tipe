@@ -2,6 +2,8 @@ from src.CarFactory import CarFactory
 from src.helpers import creation_distance_min, creation_temps
 import random
 
+# Creation d'une classe permettant d'effectuer la simulation et d'obtenir toute les voitures.
+
 class Simulator:
 
     def __init__(self, x_min, x_max, n):

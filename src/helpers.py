@@ -4,14 +4,16 @@ from datetime import datetime
 def creation_distance_min(vitesse):
     """
     Creation d'une distance minimale
-    :param p: probabilite que la distance minimale change (plus p est grand, plus la distance minimale a de chance de changer) 
-    :param distance_min: distance minimale autorisee
-    :return: la distance minimale entre 2 voitures  
+    :param vitesse: vitesse de la voiture
+    :return: la distance minimale avec la voiture precedante
     """
     distance_min = (((vitesse*0.36)**2)/2) + 1
     return distance_min
 
 def creation_temps(x_min, x_max, n):
+    """
+    Creation d'une liste de temps entre x_min et x_max avec n valeurs
+    """
     temps = []
     for i in range(0, n+1):
         temps.append(x_min + ((i * (x_max - x_min)) / n))
@@ -23,10 +25,9 @@ def creation_positions_graphique(positions, temps):
     Creation des graphiques des positions
     :param positions: liste de liste des positions des voitures
     :param temps: liste de temps
-    :return: graphique des positions
+    :return: graphique des positions (temps en ordonnee pour ameliorer la visibilite)
     """
     for position in range(0, len(positions), 1):
-        # plt.plot(positions[position][::30], temps[::30], 'o', color='black', markersize=0.5)
         plt.plot(positions[position], temps)
     plt.xlim(0,12000)
     plt.ylim(0,1000)
@@ -36,7 +37,13 @@ def creation_positions_graphique(positions, temps):
     plt.show()
 
 
-def creation_vitesse_moyenne_graphique(cars, temps, save=False):
+def creation_vitesse_moyenne_graphique(cars, temps):
+    """
+    Creation de la vitesse moyenne
+    :param positions: liste de liste des positions des voitures
+    :param temps: liste de temps
+    :return: graphique de la vitesse moyenne en focntion du temps
+    """
     s = 0
     v = []
     n = len(temps)
@@ -51,16 +58,16 @@ def creation_vitesse_moyenne_graphique(cars, temps, save=False):
     plt.title('vitesse moyenne des voitures')
     plt.xlabel('temps (s)')
     plt.ylabel('vitesse moyenne (m/s)')
-    if save:
-        now = datetime.now()
-        timestamp = now.strftime("%Y%m%d%H%M%S")
-        filename = f"img/vitesse_moyenne_{timestamp}.png"
-        plt.set_size_inches(18.5, 10.5)
-        plt.savefig(filename)
     plt.show()
 
 
 def creation_distance_moyenne_graphique(cars, temps):
+    """
+    Creation de la distance moyenne
+    :param positions: liste de liste des positions des voitures
+    :param temps: liste de temps
+    :return: graphique de la distance moyenne en fonction du temps
+    """
     s = 0
     d = []
     n = len(temps)
