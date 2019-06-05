@@ -1,6 +1,8 @@
 import abc
 from src.AbstractCar import AbstractCar
 
+# Creation d'une classe poour attribuer la position, la vitesse et l'acceleration de la 1ere voiture (leader)
+
 class CarLeader(AbstractCar):
 
     def __init__(self, temps):
