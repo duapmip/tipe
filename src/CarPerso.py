@@ -1,3 +1,5 @@
+"""CarPerso.py"""
+
 import numpy as np
 import random
 from src.helpers import *
@@ -8,15 +10,32 @@ B = 2
 
 
 class CarPerso(AbstractCar):
-    """
-    Classe correspondante au modele de l'Intelligent Driver Model (IDM).
-    Permet d'assigner l'acceleration, la vitesse et la position d'apres le modele Personnel a chaque instant.
+    """Classe correspondante au modele personnel.
+    Permet d'assigner l'acceleration, la vitesse et la position d'apres le modele personnel a chaque instant.
+
+    Attributs:
+        temps (list): Liste du temps.
     """
 
     def __init__(self, temps):
         super().__init__(temps)
 
     def set_caracteristiques(self, leader, temps_init, position_init, vitesse_init, vitesse_max):
+        """Creation positions, vitesses et acceleration
+
+        Args:
+            leader (CarLeader): Voiture leader
+            temps_init (int) : Temps initiale
+            position_init (int): Position initiale
+            vitesse_init (int): Vitesse initiale
+            vitesse_max (int): Vitesse maximum
+                     
+        
+        Returns:
+            list: positions
+            list: vitesses
+            list: accelerations
+        """
         self._position.append(position_init)
         self._vitesse.append(vitesse_init)
         for i in range(0, len(self._temps)):

@@ -1,3 +1,5 @@
+"""simulator_functions.py"""
+
 from src.helpers import *
 import random
 
@@ -5,10 +7,20 @@ import random
 
 a = 0.000001
 def simulator_function_1(i, p, vitesse, position_init_leader, car_factory, cars, temps, model):
-    """
-    Creation des voitures
-    :param p: nombre aleatoire jouant sur l'ecart initiale entre 2 voitures
-    :return: objet voiture 
+    """Creation des voitures
+    
+    Args:
+        i (int): Numero de la voiture
+        p (int): Nombre aleatoire
+        vitesse (int): Vitesse
+        position_init_leader (int): Position initiale de la 1ere voiture
+        car_factory (CarFactory): Createur de voitures
+        cars (list): Liste de voitures
+        temps (list): Liste de temps
+        model (str): Modele
+    
+    Returns:
+        Car: voiture
     """
     if i<=23:
         position_init = max(0, min(position_init_leader - p*(i+1) - creation_distance_min(vitesse),position_init_leader - p * (i+2)))
@@ -24,10 +36,20 @@ def simulator_function_1(i, p, vitesse, position_init_leader, car_factory, cars,
 
 
 def simulator_function_2(i, p, vitesse, position_init_leader, car_factory, cars, temps, model):
-    """
-    Creation des voitures
-    :param p: nombre aleatoire jouant sur l'ecart initiale entre 2 voitures
-    :return: objet voiture 
+    """Creation des voitures
+    
+    Args:
+        i (int): Numero de la voiture
+        p (int): Nombre aleatoire
+        vitesse (int): Vitesse
+        position_init_leader (int): Position initiale de la 1ere voiture
+        car_factory (CarFactory): Createur de voitures
+        cars (list): Liste de voitures
+        temps (list): Liste de temps
+        model (str): Modele
+    
+    Returns:
+        Car: voiture
     """
     if i<=23:
         position_init = max(0, position_init_leader - p - i*(p + creation_distance_min(vitesse)) - random.random())

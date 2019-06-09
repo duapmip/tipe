@@ -1,17 +1,36 @@
+"""CarIDM.py"""
+
 from src.AbstractCar import AbstractCar
 import numpy as np
 from src.helpers import *
 
 class CarIDM(AbstractCar):
-    """
-    Classe correspondante au modele de l'Intelligent Driver Model (IDM).
+    """Classe correspondante au modele de l'Intelligent Driver Model (IDM).
     Permet d'assigner l'acceleration, la vitesse et la position d'apres le modele IDM a chaque instant.
+
+    Attributs:
+        temps (list): Liste du temps.
     """
 
     def __init__(self, temps):
         super().__init__(temps)
 
     def set_caracteristiques(self, leader, temps_init, position_init, vitesse_init, vitesse_max):
+        """Creation positions, vitesses et acceleration
+
+        Args:
+            leader (CarLeader): Voiture leader
+            temps_init (int) : Temps initiale
+            position_init (int): Position initiale
+            vitesse_init (int): Vitesse initiale
+            vitesse_max (int): Vitesse maximum
+                     
+        
+        Returns:
+            list: positions
+            list: vitesses
+            list: accelerations
+        """
         self._position.append(position_init)
         self._vitesse.append(vitesse_init)
         acceleration_max = 0.7

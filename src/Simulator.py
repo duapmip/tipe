@@ -1,10 +1,18 @@
+""""Simulator.py"""
+
 from src.CarFactory import CarFactory
 from src.helpers import creation_distance_min, creation_temps
 import random
 
-# Creation d'une classe permettant d'effectuer la simulation et d'obtenir toute les voitures.
 
 class Simulator:
+    """Classe permettant d effectuer la simulation et d obtenir toute les voitures.
+
+    Attributs:
+        x_min (int): debut de la simulation
+        x_max (int): Fin de la simulation
+        n (int): Pas de la simulation
+    """
 
     def __init__(self, x_min, x_max, n):
         self._x_min = x_min
@@ -13,6 +21,19 @@ class Simulator:
         self._temps = creation_temps(x_min, x_max, n)
 
     def simulation(self, nombre_voitures, position_init, vitesse_init, leader_function, simulator_function, model):
+        """Creation des voitures
+
+        Args: 
+            nombre_voitures (int) Nombre de voitures
+            position_init (int): position initiale
+            vitesse_init (int):vitesse intiiale
+            leader_function (function): Fonction du leader
+            simulator_function (function):Fonction de simulation
+            model (str): Modele
+
+        Returns:
+            list: Liste de voitures
+        """
         car_factory = CarFactory()
         leader = car_factory.create_leader(self._temps, position_init, vitesse_init, leader_function)
         cars = [leader]

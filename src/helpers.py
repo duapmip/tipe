@@ -1,18 +1,30 @@
+"""helpers.py"""
+
 import matplotlib.pyplot as plt
 from datetime import datetime
 
 def creation_distance_min(vitesse):
-    """
-    Creation d'une distance minimale
-    :param vitesse: vitesse de la voiture
-    :return: la distance minimale avec la voiture precedante
+    """"Creation de la distance moyenne
+    
+    Args:
+        vitesse (int): Vitesse
+
+    Returns:
+        int: Distance minimale
     """
     distance_min = (((vitesse*0.36)**2)/2) + 1
     return distance_min
 
 def creation_temps(x_min, x_max, n):
-    """
-    Creation d'une liste de temps entre x_min et x_max avec n valeurs
+    """Creation du temps
+    
+    Args:
+        x_min (int): debut de la simulation
+        x_max (int): Fin de la simulation
+        n (int): Pas de la simulation
+
+    Returns:
+        list: Temps
     """
     temps = []
     for i in range(0, n+1):
@@ -21,11 +33,11 @@ def creation_temps(x_min, x_max, n):
 
 
 def creation_positions_graphique(positions, temps):
-    """
-    Creation des graphiques des positions
-    :param positions: liste de liste des positions des voitures
-    :param temps: liste de temps
-    :return: graphique des positions (temps en ordonnee pour ameliorer la visibilite)
+    """Creation des graphiques des positions
+    
+    Args:
+        positions (list): Liste de liste des positions des voitures
+        temps (list): Liste de temps
     """
     for position in range(0, len(positions), 1):
         plt.plot(positions[position], temps)
@@ -38,11 +50,11 @@ def creation_positions_graphique(positions, temps):
 
 
 def creation_vitesse_moyenne_graphique(cars, temps):
-    """
-    Creation de la vitesse moyenne
-    :param positions: liste de liste des positions des voitures
-    :param temps: liste de temps
-    :return: graphique de la vitesse moyenne en focntion du temps
+    """Creation des graphiques de la vitesse moyenne
+    
+    Args:
+        cars (list): Liste des voitures
+        temps (list): Liste de temps
     """
     s = 0
     v = []
@@ -62,11 +74,11 @@ def creation_vitesse_moyenne_graphique(cars, temps):
 
 
 def creation_distance_moyenne_graphique(cars, temps):
-    """
-    Creation de la distance moyenne
-    :param positions: liste de liste des positions des voitures
-    :param temps: liste de temps
-    :return: graphique de la distance moyenne en fonction du temps
+    """Creation des graphiques de la distance moyenne
+    
+    Args:
+        cars (list): Liste des voitures
+        temps (list): Liste de temps
     """
     s = 0
     d = []
