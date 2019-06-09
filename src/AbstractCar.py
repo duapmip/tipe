@@ -1,8 +1,11 @@
+"""AbstractCar.py"""
 import abc
 
 class AbstractCar:
-    """
-    Classe commune aux classes CarLeader, CarIDM, CarPerso (une voiture possede toujours une position, une vitesse et une acceleration)
+    """Classe commune aux classes CarLeader, CarIDM, CarPerso (une voiture possede toujours une position, une vitesse et une acceleration)
+
+    Attributs:
+        temps (list): Liste du temps.
     """
 
     def __init__(self, temps):
