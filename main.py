@@ -23,11 +23,11 @@ if __name__ == "__main__":
     x_max = 1000
     n = 10000
     position_init = 800
-    nombre_voitures = 100
+    nombre_voitures = 500
     vitesse = 20
     model = "perso"
     leader_function = leader_function_2
-    simulator_function = simulator_function_2
+    simulator_function = simulator_function_1
 
     # création des voitures en oreintation objet, chaque voiture possède une position, une vitesse et une accéération  à chaque instant
 

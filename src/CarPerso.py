@@ -3,13 +3,15 @@ import random
 from src.helpers import *
 
 from src.AbstractCar import AbstractCar
-A = 2
-B = 5
+A = 5
+B = 2
 
-# Creation d'une classe correspondante au modele cree.
-# Permet d'assigner l'acceleration, la vitesse et la position d'apres le modele Perso a chaque instant.
 
 class CarPerso(AbstractCar):
+    """
+    Classe correspondante au modele de l'Intelligent Driver Model (IDM).
+    Permet d'assigner l'acceleration, la vitesse et la position d'apres le modele Personnel a chaque instant.
+    """
 
     def __init__(self, temps):
         super().__init__(temps)

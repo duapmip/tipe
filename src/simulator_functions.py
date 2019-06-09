@@ -1,7 +1,7 @@
 from src.helpers import *
 import random
 
-# creation de differents types de comportements pour les conditions initiales.
+# Fonctions coorrespondantes a differents types de comportements pour les conditions initiales.
 
 a = 0.000001
 def simulator_function_1(i, p, vitesse, position_init_leader, car_factory, cars, temps, model):
@@ -30,7 +30,7 @@ def simulator_function_2(i, p, vitesse, position_init_leader, car_factory, cars,
     :return: objet voiture 
     """
     if i<=23:
-        position_init = max(0, position_init_leader + p - i*(p + creation_distance_min(vitesse)) - random.random())
+        position_init = max(0, position_init_leader - p - i*(p + creation_distance_min(vitesse)) - random.random())
         car = car_factory.create_car(temps, cars[i], a, position_init, model)
     else:
         position_init = 0

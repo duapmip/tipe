@@ -212,7 +212,7 @@ boxplot.meanprops.linewidth       : 1.0
 ## text properties used by text.Text.  See
 ## http://matplotlib.org/api/artist_api.html#module-matplotlib.text for more
 ## information on text properties
-text.color          : 707074
+text.color          : 2185c5
 
 #### LaTeX customizations. See http://wiki.scipy.org/Cookbook/Matplotlib/UsingTex
 #text.usetex         : False  ## use latex for all text handling. The following fonts
@@ -280,7 +280,7 @@ text.color          : 707074
 ## default fontsizes for ticklabels, and so on.  See
 ## http://matplotlib.org/api/axes_api.html#module-matplotlib.axes
 #axes.facecolor      : white   ## axes background color
-axes.edgecolor      : D0D0E0   ## axes edge color
+axes.edgecolor      : 2185c5   ## axes edge color
 #axes.linewidth      : 0.8     ## edge linewidth
 axes.grid           : True   ## display grid or not
 axes.grid.axis      : both    ## which axis the grid should apply to
@@ -291,7 +291,7 @@ axes.titlesize      : 18   ## fontsize of the axes title
 axes.labelsize      : 14  ## fontsize of the x any y labels
 #axes.labelpad       : 4.0     ## space between label and axis
 #axes.labelweight    : normal  ## weight of the x and y labels
-axes.labelcolor     : 707074
+axes.labelcolor     : 2185c5
 #axes.axisbelow      : line    ## draw axis gridlines and ticks below
                                ## patches (True); above patches but below
                                ## lines ('line'); or above all (False)

@@ -1,6 +1,6 @@
 import random
 
-# creation de differents types de comportements pour la 1ere voiture (leader).
+# Fonctions correspondantes a differents types de comportements pour la 1ere voiture (leader).
 
 def leader_function_1(temps, position_init, vitesse_init):
     """
@@ -14,18 +14,13 @@ def leader_function_1(temps, position_init, vitesse_init):
     accelerations = []
     a = 280
     b = 850
-    c = 3700
     dt = temps[1] - temps[0]
     for i in range(len(temps)):
         if vitesses[i] > 0:
             if i <= a:
                 accelerations.append(-0.6)
             if a<i<=b:
-                accelerations.append(0.24)
-            if b<i<=c:
-                accelerations.append(-0.04)
-            if c<=i<=4500:
-                accelerations.append(-0.03)
+                accelerations.append(0.04)
             else:
                 accelerations.append(0)
         else:

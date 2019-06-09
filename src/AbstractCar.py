@@ -1,8 +1,9 @@
 import abc
 
-# Creation d'une classe commune aux classes CarLeader, CarIDM, CarPerso (une voiture possede toujours une position, une vitesse et une acceleration)
-
 class AbstractCar:
+    """
+    Classe commune aux classes CarLeader, CarIDM, CarPerso (une voiture possede toujours une position, une vitesse et une acceleration)
+    """
 
     def __init__(self, temps):
         self._temps = temps
